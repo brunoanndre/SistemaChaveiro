@@ -17,7 +17,7 @@
             $hash = $usuario->getSenha();
             $id_usuario = $usuario->getID();
             
-            if(crypt($senha, $hash) === $hash){
+            if(password_verify($senha, $hash)){
                 session_start();
                 $_SESSION['id_usuario'] = $id_usuario;
                 $_SESSION['nivel_acesso'] = $usuario->getAcesso();

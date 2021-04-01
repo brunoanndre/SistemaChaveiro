@@ -8,6 +8,7 @@ class Usuario{
     private $senha;
     private $nivel_acesso;
     private $ativo;
+    private $telefone;
 
     public function getID(){
         return $this->id;
@@ -50,11 +51,22 @@ class Usuario{
     public function setAtivo($ativo){
         $this->ativo = trim($ativo);
     }
+
+    public function getTelefone(){
+        return $this->telefone;
+    }
+    public function setTelefone($telefone){
+        $this->telefone = trim($telefone);
+    }
 }
 
 interface UsuarioDAO{
     public function addUsuario(Usuario $u);
     public function buscarPeloId($id);
     public function buscarLogin(Usuario $u);
+    public function buscarPeloNome($nome);
+    public function buscarEmail($email);
     public function buscarConsulta();
+    public function editar(Usuario $u);
+    public function deletar($id);
 }

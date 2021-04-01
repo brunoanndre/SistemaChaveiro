@@ -24,10 +24,16 @@ if(isset($_SESSION['nivel_acesso'])){
         switch($pagina){
            default: case 'consultarServicos': include 'view/consultarServicos.php'; break;
            case 'consultarUsuarios': include 'view/consultarUsuarios.php'; break;
+           case 'cadastrarUsuario': include 'view/cadastrarUsuario.php'; break;
+           case 'exibirUsuario': include 'view/exibirUsuario.php'; break;
+           case 'editarUsuario': include 'view/editarUsuario.php'; break;
+           case 'cadastrarComanda': include 'view/cadastrarComanda.php'; break;
         }
     }else{
         switch($pagina){
             default: case 'consultarServicos': include 'view/consultarServicos.php'; break;
+            case 'exibirUsuario': include 'view/exibirUsuario.php'; break;
+            case 'cadastrarComanda': include 'view/cadastrarComanda.php'; break;
         }
     }
 }

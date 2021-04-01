@@ -163,6 +163,7 @@ nav ul{
 
 .header-nav{
 	flex: 1;
+	margin-right: 350px;
 }
 
 .nav-header{
@@ -215,3 +216,83 @@ nav ul a:hover{
 .user-dropdown:hover{
 	color: #FFFFFF;
 }
+
+.jumbotronContainer{
+	display: flex;
+	justify-content: center;
+}
+.areaTabela{
+width: 80%;
+margin-top: 70px;
+padding: 20px;
+border-radius: 20px;
+}
+.cadastroUsuarioArea{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.cadastroForm{
+	width: 50%;
+}
+
+.div-botao-form{
+	display: flex;
+	justify-content: center;
+}
+
+.botao-form{
+	background-color: #d9534f;
+	color: #FFFFFF;
+	margin-top: 30px;
+	padding: 5px;
+}
+
+.botao-form:hover{
+	background-color: rgb(194, 17, 17);
+}
+
+.alertErro{
+	color: #f00;
+}
+
+.cadastroComandaArea{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 60px;
+
+}
+
+.boxCadastrarComanda{
+	width: 70%;
+	padding-left: 40px;
+
+}
+
+.inline{
+    display: inline-block;
+}
+
+.formWidth{
+	width: 50% !important;
+}
+
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+ .hide{
+	 display: none;
+ }
+
+ .divBotaoCadastro{
+	 margin-top: 20px;
+	 display: flex;
+	 justify-content: center;
+ }
+
+ .textArea{
+	 resize: none;
+ }

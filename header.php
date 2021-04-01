@@ -17,14 +17,13 @@
     <title>Chaveiro Pão de Açúcar</title>
     <link href="../images/favicon.ico" rel="icon" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="main.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src=jquery.mask.min.js></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-
 </head>
 <body>
   <div class="header_header">..
@@ -34,16 +33,18 @@
     <div class="header-nav">
       <nav class="nav-header">
         <ul>
-          <a href="index.php?pagina=consultarServicos"><li>Serviços</li></a>    
+          <a href="index.php?pagina=consultarServicos"><li>Comandas</li></a>    
           <a href=""><li>Financeiro</li></a>
           <a href=""><li>Estoque</li></a>
-          <a href=""><li>Usuários</li></a>
+          <a href=""><li>Clientes</li></a>
+          <?php if($_SESSION['nivel_acesso'] == 1){ ?>
+          <a href="index.php?pagina=consultarUsuarios"><li>Usuários</li></a>
+          <?php } ?>
         </ul>
       </nav>
     </div>
     <li class="dropdown">
-      <a class="user-dropdown dropdown-toggle" href="" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration:none;">Chaveiro</a>
-    <?php echo $nomeUsuario; ?>
+      <a class="user-dropdown dropdown-toggle" href="" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration:none;"><?php echo $nomeUsuario ?></a>
     </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
         <a class="dropdown-item btn btn-danger" href="#">Perfil</a><br>

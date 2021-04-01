@@ -11,11 +11,12 @@ class UsuarioDaoPgsql implements UsuarioDAO{
     }
 
     public function addUsuario(Usuario $u){
-        $sql = $this->pdo->prepare("INSERT INTO usuarios (nome, email, senha, nivel_acesso, ativo) VALUES
-            (:nome,:email,:senha,:nivel_acesso,:ativo)");
+        $sql = $this->pdo->prepare("INSERT INTO usuarios (nome, email, senha, nivel_acesso, ativo, telefone) VALUES
+            (:nome,:email,:senha,:nivel_acesso,:ativo, :telefone)");
             $sql->bindValue(":nome", $u->getNome());
             $sql->bindValue(":email", $u->getEmail());
             $sql->bindValue(":senha", $u->getSenha());
+            $sql->bindValue(":telefone", $u->getTelefone());
             $sql->bindValue(":nivel_acesso", $u->getAcesso());
             $sql->bindValue(":ativo", $u->getAtivo());
             
@@ -39,6 +40,7 @@ class UsuarioDaoPgsql implements UsuarioDAO{
             $u->setEmail($linha['email']);
             $u->setAtivo($linha['ativo']);
             $u->setAcesso($linha['nivel_acesso']);
+            $u->setTelefone($linha['telefone']);
 
             return $u;
         }else{
@@ -76,6 +78,7 @@ class UsuarioDaoPgsql implements UsuarioDAO{
                 $u->setNome($item['nome']);
                 $u->setEmail($item['email']);
                 $u->setAcesso($item['nivel_acesso']);
+                $u->setTelefone($item['telefone']);
 
                 $array[] = $u;
             }
@@ -83,7 +86,56 @@ class UsuarioDaoPgsql implements UsuarioDAO{
         }else{
             return false;
         }
-        
+    }
+
+    public function editar(Usuario $u){
+        $sql = $this->pdo->prepare("UPDATE usuarios SET nome = :nome, email = :email, telefone = :telefone  WHERE id_usuario = :id");
+        $sql->bindValue(":nome", $u->getNome());
+        $sql->bindValue(":email", $u->getEmail());
+        $sql->bindValue(":telefone", $u->getTelefone());
+        $sql->bindValue(":id", $u->getID());
+        if($sql->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function buscarEmail($email){
+        $sql = $this->pdo->prepare("SELECT * FROM usuarios WHERE email = :email");
+        $sql->bindValue(":email", $email);
+        $sql->execute();
+
+        if($sql->rowCount() > 0){
+            $linha = $sql->fetch(PDO::FETCH_ASSOC);
+            return $linha['id_usuario'];
+        }else{
+            return false;
+        }
+    }
+
+    public function deletar($id){
+        $sql = $this->pdo->prepare("UPDATE usuarios SET ativo = false WHERE id_usuario = :id");
+        $sql->bindValue(":id", $id);
+
+        if($sql->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function buscarPeloNome($nome){
+        $sql = $this->pdo->prepare("SELECT * FROM usuarios WHERE nome = :nome");
+        $sql->bindValue(":nome", $nome);
+        $sql->execute();
+
+        if($sql->rowCount() > 0){
+            $linha = $sql->fetch(PDO::FETCH_ASSOC);
+            return $linha['id_usuario'];
+        }else{
+            return false;
+        }
     }
 
 }
