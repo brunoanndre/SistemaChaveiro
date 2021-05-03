@@ -94,4 +94,5 @@ interface ClienteDAO{
     public function buscarPeloId($id);
     public function atualizarHistorico($id_comanda,$id);
     public function mostrarResultado($value);
+    public function buscarHistorico($id);
 }

@@ -28,6 +28,7 @@
                     <th></th>
                     <th>ID</th>
                     <th>Cliente</th>
+                    <th>Tipo de serviço</th>
                     <th>Descrição</th>
                     <th>Endereço</th>
                     <th>Data de abertura</th>
@@ -46,6 +47,7 @@
                         echo '<td><a href="index.php?pagina=exibirComanda&id=' . $comanda->getId()  . '"><span class="glyphicon glyphicon-eye-open"></span></td></a>';
                         echo '<td>' . $comanda->getId() . '</td>';
                         echo '<td>' . $cliente->getNome() . '</td>';
+                        echo '<td>' . $comanda->getTipo() . '</td>';
                         echo '<td>' . $comanda->getDescricao() . '</td>';
                         echo '<td>'. $endereco->getCidade() .', '. $endereco->getLogradouro() . ', '. $endereco->getNumero(). '</td>';
                         echo '<td>' . $comanda->getDataInicial() . '</td></tr>';

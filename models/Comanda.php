@@ -10,8 +10,7 @@ class Comanda{
     private $dataInicial;
     private $dataFinal;
     private $descricao;
-    private $material1;
-    private $material2;
+    private $materiais;
     private $tipo;
     private $prioridade;
     private $situacao;
@@ -81,18 +80,11 @@ class Comanda{
         $this->descricao = ucwords(trim($descricao));
     }
 
-    public function getMaterial1(){
-        return $this->material1;
+    public function getMateriais(){
+        return $this->materiais;
     }
-    public function setMaterial1($material1){
-        $this->material1 = trim($material1);
-    }
-
-    public function getMaterial2(){
-        return $this->material2;
-    }
-    public function setMaterial2($material2){
-        $this->material2 = trim($material2);
+    public function setMateriais($materiais){
+        $this->materiais = trim($materiais);
     }
 
     public function getTipo(){
@@ -137,4 +129,6 @@ interface ComandaDAO{
     public function cancelar(Comanda $c);
     public function encerrar(Comanda $c);
     public function buscarConsulta($parametro);
+    public function buscarPeloId($id);
+    public function buscarMateriais($id);
 }

@@ -188,3 +188,26 @@ function cadastrarClienteModal(){
     $('#modalCliente').modal('hide');
 }
 
+function inserirMaterial(){
+    let material = document.getElementById('inputMaterial').value;
+    let lista = document.getElementById('listaMateriais');
+
+
+    lista.innerHTML += '<li><label style="color:green;">' +  material  + '</label></li>';
+    
+
+
+    if(document.getElementById('material1').value == ""){
+        document.getElementById('material1'). value = material;
+    }else if(document.getElementById('material2').value == ""){
+        document.getElementById('material2').value = material;
+    }else if(document.getElementById('material3').value == ""){
+        document.getElementById('material3').value = material;
+    }else{
+        document.getElementById('material4').value = material;
+    }
+
+    document.getElementById('inputMaterial').value = "";
+    $('#modalMateriais').modal('hide');
+
+}

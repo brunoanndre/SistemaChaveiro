@@ -91,6 +91,16 @@
             }
         }
 
+        public function buscarHistorico($id){
+            $sql = $this->pdo->prepare("SELECT historico FROM clientes WHERE id = :id");
+            $sql->bindValue(":id", $id);
+            $sql->execute();
+
+            $linha = $sql->fetch(PDO::FETCH_ASSOC);
+
+            return $linha['historico'];
+        }
+
         public function atualizarHistorico($id_comanda,$id){
             $sql = $this->pdo->prepare("UPDATE clientes SET historico = :historico WHERE id = :id");
             $sql->bindValue(":historico", $id_comanda);

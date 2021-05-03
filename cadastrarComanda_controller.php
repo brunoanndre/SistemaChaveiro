@@ -27,7 +27,7 @@
     $logradouro = filter_input(INPUT_POST, 'logradouro');
     $numero = filter_input(INPUT_POST, 'numero');
     $referencia = filter_input(INPUT_POST, 'referencia');
-    $situacao = 'ativa';
+    $situacao = 'Em aberto';
 
     $erros = '';
 
@@ -105,7 +105,7 @@
         if($id_comanda != false){
             $clientedao->atualizarHistorico($id_comanda,$id_cliente);
 
-            header('Location:index.php?pagina=cadastrarComanda&Sucesso');
+            header('Location:index.php?pagina=exibirComanda&id='.$id_comanda.'&sucesso');
         }else{
             header('Location:index.php?pagina=cadastrarComanda&erroDB');
         }

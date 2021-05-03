@@ -54,10 +54,10 @@
                             <label>CPF:</label>
                             <input id="cpfInput" type="text" name="cpf" class="form-control" readonly value="<?php echo $linhaCliente->getCPF(); ?>">  
                         </div>
-                    <?php }else{ ?>
-                    <div id="cnpj" class="col-sm-12 hidden">
+                    <?php }else{?>
+                    <div id="cnpj" class="col-sm-12">
                         <label>CNPJ:</label>
-                        <input id="cnpjInput" type="text" name="cnpj" class="form-control" autocomplete="off">
+                        <input id="cnpjInput" type="text" name="cnpj" class="form-control" readonly autocomplete="off" value="<?php echo $linhaCliente->getCNPJ() ?>">
                     </div>
                     <?php } ?>
                 </div>

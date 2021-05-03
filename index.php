@@ -32,6 +32,7 @@ if(isset($_SESSION['nivel_acesso'])){
            case 'cadastrarCliente': include 'view/cadastrarCliente.php'; break;
            case 'exibirCliente': include 'view/exibirCliente.php'; break;
            case 'editarCliente': include 'view/editarCliente.php'; break;
+           case 'exibirComanda': include 'view/exibirComanda.php'; break;
         }
     }else{
         switch($pagina){
@@ -41,6 +42,7 @@ if(isset($_SESSION['nivel_acesso'])){
             case 'consultarClientes': include 'view/consultarClientes.php'; break;
             case 'cadastrarCliente': include 'view/cadastrarCliente.php'; break;
             case 'exibirCliente': include 'view/exibirCliente.php'; break;
+            case 'exibirComanda': include 'view/exibirComanda.php'; break;
         }
     }
 }
